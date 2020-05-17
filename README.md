@@ -1,3 +1,6 @@
+[![GitHub issues](https://img.shields.io/github/issues/david-storm94/bigint-json)](https://github.com/david-storm94/bigint-json/issues)
+[![GitHub license](https://img.shields.io/github/license/david-storm94/bigint-json)](https://github.com/david-storm94/bigint-json/blob/master/LICENSE)
+
 Simple package that allows you to use `JSON.parse` & `JSON.stringify` with `BigInt` support.
 
 It works by converting bigints to string and appending `n` when stringifying and finding strings representing numbers ending with `n` and converting then to `BigInt` when parsing
