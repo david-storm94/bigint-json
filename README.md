@@ -12,12 +12,12 @@ It works by converting bigints to string and appending `n` when stringifying and
 
 ## Install
 
-```
+```shell
 $ npm install bigint-json
 ```
 
 ## Usage
-```
+```js
 const bigintJSON = require('bigint-json');
 
 const someObject = {someKey: 1234n};
