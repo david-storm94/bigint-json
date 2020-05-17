@@ -42,6 +42,34 @@ describe('Tests for bigint json', () => {
     });
 
     describe('stringify', () => {
+        it('should not mutate input object', () => {
+            let object = {
+                someKey: 'someString',
+                someKey2: 1234,
+                someKey3: 1234n,
+                someKey4: {
+                    nestedKey: 'someString',
+                    nestedKey2: 1234,
+                    nestedKey3: 1234n,
+                    nestedKey4: {
+                        nestedNestedKey: {
+                            nestedNestedKey: 'someString',
+                            nestedNestedKey2: 1234,
+                            nestedNestedKey3: 12349912312323891374291847012983471209384712098347012983741029834710298374102983741092837412093847120938471023n,
+                        }
+                    }
+                }
+            };
+            let someKey3 = object.someKey3;
+            let nestedKey3 = object.someKey4.nestedKey3;
+            let nestedNestedKey3 = object.someKey4.nestedNestedKey3;
+            let stringified = bigintJSON.stringify(object);
+
+            expect(someKey3).to.equal(object.someKey3);
+            expect(nestedKey3).to.equal(object.someKey4.nestedKey3);
+            expect(nestedNestedKey3).to.equal(object.someKey4.nestedNestedKey3);
+        });
+
         it('throw error if input is not object', () => {
             expect(bigintJSON.stringify.bind(bigintJSON, 'sadfsadfasdf')).to.throw('TypeError: Do not know to stringify a string');
         });
