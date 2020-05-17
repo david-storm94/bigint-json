@@ -5,6 +5,31 @@ const bigintJSON = require('../index');
 
 describe('Tests for bigint json', () => {
 
+    describe('parse', () => {
+        it('Should parse as json', () => {
+            let stringified = '{"someKey":"someString","someKey2":1234,"someKey3":"1234n","somekey4":{"nestedKey":"someString","nestedKey2":1234,"nestedKey3":"1234n","nestedKey4":{"nestedNestedKey":{"nestedNestedKey":"someString","nestedNestedKey2":1234,"nestedNestedKey3":"12349912312323891374291847012983471209384712098347012983741029834710298374102983741092837412093847120938471023n"}}}}';
+            let parsed = bigintJSON.parse(stringified);
+
+            let expectedObject = {
+                someKey: 'someString',
+                someKey2: 1234,
+                someKey3: 1234n,
+                somekey4: {
+                    nestedKey: 'someString',
+                    nestedKey2: 1234,
+                    nestedKey3: 1234n,
+                    nestedKey4: {
+                        nestedNestedKey: {
+                            nestedNestedKey: 'someString',
+                            nestedNestedKey2: 1234,
+                            nestedNestedKey3: 12349912312323891374291847012983471209384712098347012983741029834710298374102983741092837412093847120938471023n,
+                        }
+                    }
+                }
+            };
+            expect(parsed).to.eql(expectedObject);
+        });
+    });
 
     describe('stringify', () => {
         it('throw error if input is not object', () => {
