@@ -29,11 +29,25 @@ describe('Tests for bigint json', () => {
             };
             expect(parsed).to.eql(expectedObject);
         });
+
+        it('throw error if input is not string', () => {
+            expect(bigintJSON.parse.bind(bigintJSON, {})).to.throw('TypeError: Do not know to parse a object');
+        });
+
+        it('trow error if input is falsy', () => {
+            expect(bigintJSON.parse.bind(bigintJSON)).to.throw('Invalid input');
+        });
+
+
     });
 
     describe('stringify', () => {
         it('throw error if input is not object', () => {
-            expect(bigintJSON.stringify.bind(bigintJSON, 'sadfsadfasdf')).to.throw('TypeError: Do not know to serialize a string');
+            expect(bigintJSON.stringify.bind(bigintJSON, 'sadfsadfasdf')).to.throw('TypeError: Do not know to stringify a string');
+        });
+
+        it('trow error if input is falsy', () => {
+            expect(bigintJSON.stringify.bind(bigintJSON)).to.throw('Invalid input');
         });
 
         it('Should be able to stringify with bigints to JSON', () => {
