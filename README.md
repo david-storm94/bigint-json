@@ -22,7 +22,7 @@ const bigintJSON = require('bigint-json');
 
 const someObject = {someKey: 1234n};
 
-const json = bigintJSON.stringify(someObject); // {"someKey":"1234n"}
+const json = bigintJSON.stringify(someObject); // '{"someKey":"1234n"}'
 
 const parsed = bigintJSON.parse(json); // { someKey: 1234n }
 
