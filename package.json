@@ -4,7 +4,8 @@
   "description": "Bigint support for Json",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/*.test.js"
+    "test": "mocha test/*.test.ts",
+    "lint": "eslint --fix . && echo 'Lint complete.'"
   },
   "repository": {
     "type": "git",
@@ -18,15 +19,26 @@
     "json",
     "parse"
   ],
-  "author": "David Storm",
+  "author": "David Storm <storm.david1994@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/david-storm94/bigint-json/issues"
   },
   "homepage": "https://github.com/david-storm94/bigint-json#readme",
   "devDependencies": {
+    "@types/chai": "^4.2.14",
+    "@types/lodash": "^4.14.162",
+    "@types/mocha": "^8.0.3",
+    "@typescript-eslint/eslint-plugin": "^4.4.1",
+    "@typescript-eslint/parser": "^4.4.1",
     "chai": "^4.2.0",
-    "mocha": "^7.1.2"
+    "eslint": "^7.11.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^6.13.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "mocha": "^7.1.2",
+    "prettier": "^2.1.2",
+    "typescript": "^4.0.3"
   },
   "dependencies": {
     "lodash.clonedeep": "^4.5.0"
